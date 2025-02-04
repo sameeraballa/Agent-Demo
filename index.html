@@ -1,5 +1,25 @@
 <html>
 <body>
 Billing Agent Demo
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00Dak00000MBvG1',
+				'Biiling_Agent_Service',
+				'https://orgfarm-fb5af9245d-dev-ed.develop.my.site.com/ESWBiilingAgentService1738666091198',
+				{
+					scrt2URL: 'https://orgfarm-fb5af9245d-dev-ed.develop.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-fb5af9245d-dev-ed.develop.my.site.com/ESWBiilingAgentService1738666091198/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
