@@ -18,6 +18,43 @@ Billing Agent Demo with custom
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+//Passing Web Context to Prechat - BEGIN
+    var sFirstName = "John";
+    var sLastName = "Doe";
+    var sSubject = "Test Subject";
+    var sCustomerID = "12345678";
+    var sShoppingCartValue = "1000";
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "CaseNumber": {
+              "value": sFirstName,
+              "isEditableByEndUser": false
+	    }
+            // },
+            // "_lastName": {
+            //   "value": sLastName,
+            //   "isEditableByEndUser": false
+            // },
+            // "_subject": {
+            //   "value": "test subject",
+            //   "isEditableByEndUser": true
+            // }
+        });
+      
+        //Set invisible prechat field
+        // embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        //     "Shopping_Cart_Value" : sShoppingCartValue,
+        //     "Customer_ID" : sCustomerID
+        // });
+    });
+    //Passing Web Context to Prechat - END
 
 </script>
 <script type='text/javascript' src='https://orgfarm-fb5af9245d-dev-ed.develop.my.site.com/ESWBiilingAgentService1738666091198/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
